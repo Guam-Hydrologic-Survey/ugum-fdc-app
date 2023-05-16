@@ -16,27 +16,6 @@ const ewi = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Wo
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community | DKValerio, MWZapata, JBulaklak, NCHabana 2022'
 }).addTo(map); 
 
-
-const yigo = L.marker([13.5640, 144.9061]).bindPopup('Yigo')
-const dededo = L.marker([13.5453, 144.8511]).bindPopup('Dededo')
-const mangilao = L.marker([13.4702, 144.8456]).bindPopup('Mangilao')
-const tamuning = L.marker([13.5005, 144.7956]).bindPopup('Tamuning')
-const barrigada = L.marker([13.4708, 144.8181]).bindPopup('Barrigada')
-const agana = L.marker([13.4763, 144.7502]).bindPopup('Agana')
-const asan = L.marker([13.4608, 144.7247]).bindPopup('Asan')
-const piti = L.marker([13.4456, 144.6918]).bindPopup('Piti')
-const yona = L.marker([13.4010, 144.7522]).bindPopup('Yona')
-const santaRita = L.marker([13.3743, 144.7083]).bindPopup('Santa Rita')
-const agat = L.marker([13.3673, 144.6643]).bindPopup('Agat')
-const talofofo = L.marker([13.3383, 144.7302]).bindPopup('Talofofo')
-const inarajan = L.marker([13.2792, 144.7302]).bindPopup('Inajaran')
-const umatac = L.marker([13.3139, 144.6698]).bindPopup('Umatac')
-const merizo = L.marker([13.2682, 144.6918]).bindPopup('Merizo')
-
-// const villages = L.layerGroup([yigo, dededo, mangilao, tamuning, barrigada, agana, asan, piti, yona, santaRita, agat, talofofo, inarajan, umatac, merizo]).addTo(map);
-
-// const layerControl = L.control.layers({"Open Street Map": osm}, {"Villages": villages}).addTo(map);
-
 const baseLayers = {
     'ESRI World Imagery': ewi,
     'Open Street Map': osm,
@@ -96,8 +75,4 @@ fetch(dataUrl)
       }
       const riverGeoJSON = L.geoJSON(geojson, {onEachFeature: getFDCValues}).addTo(map);
       layerControl.addOverlay(riverGeoJSON, "Selected River Reach in Guam")
-  })
-
-  map.on('baselayerchange', function(e) {
-    console.log(e.layer);
   })
