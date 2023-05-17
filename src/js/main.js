@@ -62,6 +62,8 @@ const download = () => {
     document.body.removeChild(a)
 }
 
+var riverGeoJSON;
+
 fetch(dataUrl)
   .then(response => response.json())
   .then(geojson => {
@@ -73,6 +75,29 @@ fetch(dataUrl)
           );
           layer.on('click', a => plotData = a.target.feature.properties)
       }
-      const riverGeoJSON = L.geoJSON(geojson, {onEachFeature: getFDCValues}).addTo(map);
+      riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
       layerControl.addOverlay(riverGeoJSON, "Selected River Reach in Guam")
   })
+
+function highlightFeature(e) {
+    const layer = e.target;
+
+    layer.setStyle({
+        weight: 5, 
+        color: 'white',
+        fillOpacity: 0.7,
+    });
+
+    layer.bringToFront();
+}
+
+function resetHighlight(e) {
+    riverGeoJSON.resetStyle(e.target);
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+    });
+}
