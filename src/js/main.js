@@ -91,7 +91,6 @@ fetch(dataUrl)
           layer.on('click', a => plotData = a.target.feature.properties)
       }
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
-      layerControl.addOverlay(riverGeoJSON, "Selected River Reach in Guam")
   })
 
 function highlightFeature(e) {
