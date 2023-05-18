@@ -28,6 +28,16 @@ L.control.zoom({
     position: 'bottomright',
 }).addTo(map);
 
+const mapTitle = L.control({ position: 'topleft' });
+
+mapTitle.onAdd = function(map) {
+    this._div = L.DomUtil.create('div', 'mapTitle'); 
+    this._div.innerHTML = '<img src="./src/assets/WERI MAppFx_Title Card_Ugum FDC.png" height="150">';
+    return this._div;
+}
+
+mapTitle.addTo(map);
+
 let plotData
 const plotFDC = () => {
     const eps = [0, 10, 30, 50, 80, 95]
