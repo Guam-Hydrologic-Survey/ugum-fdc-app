@@ -3,6 +3,7 @@ const dataUrl = './src/data/rivers.json';
 const map = L.map('map', {
     center: [13.4443, 144.7937],
     zoom: 12,
+    zoomControl: false,
 })
 
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -21,7 +22,11 @@ const baseLayers = {
     'Open Street Map': osm,
 }
 
-const layerControl = L.control.layers(baseLayers, null).addTo(map);
+const layerControl = L.control.layers(baseLayers, null, { position: 'bottomright'}).addTo(map);
+
+L.control.zoom({
+    position: 'bottomright',
+}).addTo(map);
 
 let plotData
 const plotFDC = () => {
