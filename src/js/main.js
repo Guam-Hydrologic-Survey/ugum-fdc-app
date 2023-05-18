@@ -84,6 +84,7 @@ fetch(dataUrl)
   .then(geojson => {
       const getFDCValues = (feature, layer) => {
           layer.bindPopup(
+            'Stream Name: ' + feature.properties.streamName + '<br>Reach ID: ' + feature.properties.ARCID + '<br><br>'+ 
             [0, 10, 30, 50, 80, 95, 'AVG'].map(ep => `Q${ep}: ${feature.properties[`Q${ep}`]}<br>`).join('') +
             '<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="plotFDC()" data-bs-target="#exampleModal">Plot FDC</button>' +
             '<button type="button" class="btn btn-success" onclick="download()">Download CSV</button>'
