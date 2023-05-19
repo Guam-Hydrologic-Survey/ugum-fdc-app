@@ -79,6 +79,16 @@ const download = () => {
 
 var riverGeoJSON;
 
+function isEmpty(name, id) {
+    var title;
+    if (!name) {
+        title = 'Reach ID: ' + id;
+    } else {
+        title = name + ', Reach ID: ' + id;
+    }
+    return (title);
+}
+
 fetch(dataUrl)
   .then(response => response.json())
   .then(geojson => {
@@ -87,10 +97,10 @@ fetch(dataUrl)
             document.getElementById('marker-card').innerHTML = `
             <div class="card text-center">
                 <div class="card-header">
-                    <h5 class="card-title">${feature.properties.streamName}</h5>
+                    <h5>${isEmpty(feature.properties.streamName, feature.properties.ARCID)}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">${[0, 10, 30, 50, 80, 95, 'AVG'].map(ep => `Q${ep}: ${feature.properties[`Q${ep}`]}<br>`).join('')}</p>
+                    <p>${[0, 10, 30, 50, 80, 95, 'AVG'].map(ep => `Q${ep}: ${feature.properties[`Q${ep}`]}<br>`).join('')}</p>
                 </div>
                 <div class="card-footer text-body-secondary">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="plotFDC()" data-bs-target="#exampleModal">Plot FDC</button>
