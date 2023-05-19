@@ -6,15 +6,17 @@ const map = L.map('map', {
     zoomControl: false,
 })
 
+const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio 2023`;
+
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 20,
-    attribution: '© OpenStreetMap'
+    attribution: '© OpenStreetMap' + devs
 });
 
 // ESRI World Imagery 
 const ewi = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 20,
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community | DKValerio, MWZapata, JBulaklak, NCHabana 2022'
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs
 }).addTo(map); 
 
 const baseLayers = {
@@ -38,6 +40,64 @@ mapTitle.onAdd = function(map) {
 
 mapTitle.addTo(map);
 
+// Draw control bar
+var drawnFeatures = new L.FeatureGroup();
+map.addLayer(drawnFeatures);
+
+var drawControl = new L.Control.Draw({
+    position: "bottomright",
+    draw: {
+        polyline: {
+            allowIntersection: true,
+            shapeOptions: {
+                color: "orange"
+            }
+        },
+        polygon: {
+            allowIntersection: false,
+            showArea: true,
+            showLength: true,
+            shapeOptions: {
+                color: "purple",
+                clickable: true
+            }
+        },
+        circle: {
+            shapeOptions: {
+                shapeOptions: {
+                    color: "blue",
+                    clickable: true
+                }
+            }
+        },
+        circlemarker: false,
+        rectangle: {
+            showArea: true,
+            showLength: true,
+            shapeOptions: {
+                color: "green",
+                clickable: true
+            }
+        },
+        marker: false
+    },
+    edit: {
+        featureGroup: drawnFeatures,
+        remove: true,
+    }
+});
+
+map.addControl(drawControl);
+
+map.on(L.Draw.Event.CREATED, function(event) {
+    var layer = event.layer;
+    drawnFeatures.addLayer(layer);
+});
+
+if (map.hasLayer(drawnFeatures)) {
+    layerControl.addOverlay(drawnFeatures, "Drawings");
+}
+
 let plotData
 const plotFDC = () => {
     const eps = [0, 10, 30, 50, 80, 95]
@@ -56,10 +116,10 @@ const plotFDC = () => {
         },
         xaxis: {
             title: "Exceedance Probability (%)",
-            // nticks: 50,
             // autorange: false,
-            // range: [0, 100],
-            type: "log"
+            nticks: 50,
+            range: [0, 100],
+            // type: "log"
         },
         yaxis: {
             title: "Discharge (cfs)",
@@ -86,7 +146,7 @@ function isEmpty(name, id) {
     if (!name) {
         title = 'Reach ID: ' + id;
     } else {
-        title = name + ', Reach ID: ' + id;
+        title = name + ' - Reach ID: ' + id;
     }
     return (title);
 }
