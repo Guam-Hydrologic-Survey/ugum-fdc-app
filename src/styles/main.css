@@ -1,22 +1,49 @@
-body {
+/* body {
     position: absolute;
     margin: 0;
     height: 100%;
     width: 100%;
+} */
+
+/* #nav-btns {
+    margin: 20px;
+} */
+
+.bs-btn-group {
+    margin: 20px;
 }
+
+.btn-group { 
+    z-index: 9999;
+    float: right;
+}
+
+#about-txt {
+    font-size: 12px;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+/* #map {
+    height: 100%;
+} */
 
 .modal-body {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .leaflet-popup-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: larger;
-}
-
-#map {
-    height: 100%;
 }
