@@ -49,7 +49,7 @@ const plotFDC = () => {
     };
     const layout = {
         title: {
-            text: `Flow Duration Curve for ${plotData.streamName} - Reach ID ${plotData.ARCID}`,
+            text: `${plotData.streamName} - Reach ID ${plotData.ARCID}`,
             font: {
                 size: 20
             }
@@ -67,11 +67,11 @@ const plotFDC = () => {
     Plotly.newPlot('plot-div', [fdcTrace,], layout)
 }
 
-const download = () => {
+const downloadData = (id) => {
     const eps = [0, 10, 30, 50, 80, 95]
     const a = document.createElement('a')
     a.href = "data:text/csv;charset=utf-8,Exceedance Probability, Discharge (cfs),\n" + eps.map(ep => [ep, plotData[`Q${ep}`]].join(",")).join(",\n")
-    a.download = "flow_duration_curve.csv"
+    a.download = id + "_flow_duration_curve.csv"
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -104,7 +104,7 @@ fetch(dataUrl)
                 </div>
                 <div class="card-footer text-body-secondary">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="plotFDC()" data-bs-target="#exampleModal">Plot FDC</button>
-                    <button type="button" class="btn btn-success" onclick="download()">Download CSV</button>'
+                    <button type="button" class="btn btn-success" onclick="downloadData(${feature.properties.ARCID})">Download CSV</button>'
                 </div>
             </div>
             `
