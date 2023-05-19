@@ -49,15 +49,17 @@ const plotFDC = () => {
     };
     const layout = {
         title: {
-            text: `${plotData.streamName} - Reach ID ${plotData.ARCID}`,
+            text: isEmpty(plotData.streamName, plotData.ARCID),
             font: {
                 size: 20
             }
         },
         xaxis: {
             title: "Exceedance Probability (%)",
-            range: [0, 100],
-            nticks: 50,
+            // nticks: 50,
+            // autorange: false,
+            // range: [0, 100],
+            type: "log"
         },
         yaxis: {
             title: "Discharge (cfs)",
