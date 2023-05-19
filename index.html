@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 
+    <!-- Leaflet Draw -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha512-ozq8xQKq6urvuU6jNgkfqAmT7jKN2XumbrX1JiB3TnF7tI48DPI4Gy1GXKD/V3EExgAs1V+pRO7vwtS1LHg0Gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.css" integrity="sha512-vJfMKRRm4c4UupyPwGUZI8U651mSzbmmPgR3sdE3LcwBPsdGeARvUM5EcSTg34DK8YIRiIo+oJwNfZPMKEQyug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- Plotly JS -->
     <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
 
@@ -28,6 +32,39 @@
     <script src="./src/js/main.js" defer></script>
 </head>
 <body>
+    <!-- Button group -->
+    <div class="bs-btn-group" id="nav-btns">
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <!-- About button -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#about" title="About">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+          </svg>
+        </button>
+
+        <!-- Home button: Directs to GHS website -->
+        <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener" role="button" title="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+          </svg>
+        </a>
+      
+        <!-- Dropdown for links to WERI and GHS sites -->
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Links">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+              <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+              <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+            </svg>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://weri.uog.edu/" target="_blank" rel="noreferrer noopener">Water & Environmental Research Institute of the Western Pacific (WERI)</a></li>
+            <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener">Guam Hydrologic Survey (GHS)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
     <!-- Leaflet map -->
     <div id="map"></div>
 
@@ -41,6 +78,55 @@
             </div>
             <div class="modal-body">
               <div id="plot-div"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bootstrap Modal for About -->
+      <div class="modal fade" id="about" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="about-txt">
+              <p>
+                <br><br><br>
+                <strong><i>Southern Guam: Ugum Streamflow Duration Curves - WERI Technical Report No. ###</i></strong>
+                <br><br>
+                <strong>Abstract</strong><br>
+                The prediction of streamflow variability is essential in many different water resources evaluation studies. Defining long term flow variability is essential in studies such as hydropower feasibility, evaluating surface water resources for water supply studies, low and high flow studies such as in-stream flow requirements, and other studies where it is required to define the variability of flows in a stream.
+                
+                Predicting flow variability is normally accomplished by direct analyses of streamflow data for the stream in question or by applying a hydrologic inferential technique from a gaged to an ungaged stream or from a gaged location on a stream to an ungaged location on that same stream. Of course, the most reliable means is to use actual stream flow data measured at the point of interest. In 2015, WERI hydrologists developed a means of predicting flow variability at ungaged sites in Southern Guam, applying streamflow duration curve analysis. 
+                
+                However, the information developed in the streamflow studies were not readily available to anyone making studies that rely on predicting long term streamflow variability at ungaged sections of the river. With MAppFx, making flow variability information easily available to those making future water resources studies is now available to everyone. The MAppFx platform is an online interactive map and graph interface. The user of MAppFx will have an interactive map, similar to Google® Earth controls, and map features (line, point, polygon), upon selection have the option to view an interactive graph of a dataset associated to the map feature. The result is an effective and modern means of hydrologic information transfer. 
+                
+                MAppFx, an online interactive map and graph application, applies JavaScript codes and libraries, to build the platform for the worldwide access of Guam’s flow duration analysis. MAppFx has recently been applied to make production well water quality history available worldwide. The Ugum River flow duration curve dataset is used as a manageable set in the first phase of the project. A second phase of this project will apply the MAppFx platform to the entire Southern Guam group of flow duration curves.<br><br>
+                
+                <strong>Authors</strong><br>
+                NC Habana, PhD - LF Heitz, PhD, PE - DK Valerio<br><br>
+                
+                <strong>Contributors </strong><br>
+                DK Valerio - MW Zapata<br><br> 
+                
+                <strong>Acknowledgements</strong><br>
+                <i>Brigham Young University</i><br>
+                Civil Engineering Department, Hydroinformatics Laboratory <br>
+                Riley Hales, Dr. Gus Williams, Dr. Norm Jones <br><br>
+                
+                <i>Water & Environmental Research Institute of the Western Pacific</i> <br>
+                University of Guam <br>
+                Shahram Khosrowpanah, Mark A. Lander, Bill Whitman <br><br>
+                
+                <i>University of Guam’s Web Team</i><br>
+                John Wiglesworth, Matthew Raymundo, UOG Web Team, Rommel Hidalgo
+              </p>
+            </div>
+            <div class="modal-footer about-btns">
+              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
+              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
             </div>
           </div>
         </div>
