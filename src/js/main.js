@@ -84,10 +84,20 @@ fetch(dataUrl)
   .then(geojson => {
       const getFDCValues = (feature, layer) => {
           layer.bindPopup(
-            'Stream Name: ' + feature.properties.streamName + '<br>Reach ID: ' + feature.properties.ARCID + '<br><br>'+ 
-            [0, 10, 30, 50, 80, 95, 'AVG'].map(ep => `Q${ep}: ${feature.properties[`Q${ep}`]}<br>`).join('') +
-            '<button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="plotFDC()" data-bs-target="#exampleModal">Plot FDC</button>' +
-            '<button type="button" class="btn btn-success" onclick="download()">Download CSV</button>'
+            document.getElementById('marker-card').innerHTML = `
+            <div class="card text-center">
+                <div class="card-header">
+                    <h5 class="card-title">${feature.properties.streamName}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">${[0, 10, 30, 50, 80, 95, 'AVG'].map(ep => `Q${ep}: ${feature.properties[`Q${ep}`]}<br>`).join('')}</p>
+                </div>
+                <div class="card-footer text-body-secondary">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="plotFDC()" data-bs-target="#exampleModal">Plot FDC</button>
+                    <button type="button" class="btn btn-success" onclick="download()">Download CSV</button>'
+                </div>
+            </div>
+            `
           );
           layer.on('click', a => plotData = a.target.feature.properties)
       }
