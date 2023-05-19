@@ -1,21 +1,25 @@
 const dataUrl = './src/data/rivers.json';
 
+const center = [13.3715192,144.6947064];
+const defaultZoom = 12;
+const maxZoom = 20;
+
 const map = L.map('map', {
-    center: [13.4443, 144.7937],
-    zoom: 12,
+    center: center,
+    zoom: defaultZoom,
     zoomControl: false,
 })
 
 const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio 2023`;
 
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 20,
+    maxZoom: maxZoom,
     attribution: '© OpenStreetMap' + devs
 });
 
 // ESRI World Imagery 
 const ewi = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom: 20,
+    maxZoom: maxZoom,
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs
 }).addTo(map); 
 
