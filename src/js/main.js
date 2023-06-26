@@ -106,10 +106,6 @@ const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/se
 
 var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
 
-// map.on('baselayerchange', function(e) {
-//     miniMap = new L.Control.MiniMap(mini_osm, { toggleDisplay: true }).addTo(map);
-//   });
-
 let plotData
 const plotFDC = () => {
     const eps = [0, 10, 30, 50, 80, 95]
