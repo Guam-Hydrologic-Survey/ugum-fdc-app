@@ -1,6 +1,6 @@
 const dataUrl = './src/data/rivers.json';
 
-const center = [13.3715192,144.6947064];
+const center = [13.3578327,144.6614373];
 const defaultZoom = 12;
 const maxZoom = 20;
 
@@ -102,7 +102,7 @@ if (map.hasLayer(drawnFeatures)) {
     layerControl.addOverlay(drawnFeatures, "Drawings");
 }
 
-const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 0, maxZoom: 15, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
+const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 8, maxZoom: 16, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
 
 var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
 
