@@ -1,6 +1,6 @@
 const dataUrl = './src/data/rivers.json';
 
-const center = [13.3715192,144.6947064];
+const center = [13.3578327,144.6614373];
 const defaultZoom = 12;
 const maxZoom = 20;
 
@@ -10,7 +10,7 @@ const map = L.map('map', {
     zoomControl: false,
 })
 
-const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio 2023`;
+const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio MWZapata 2023`;
 
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: maxZoom,
@@ -101,6 +101,10 @@ map.on(L.Draw.Event.CREATED, function(event) {
 if (map.hasLayer(drawnFeatures)) {
     layerControl.addOverlay(drawnFeatures, "Drawings");
 }
+
+const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 8, maxZoom: 14, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
+
+var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
 
 let plotData
 const plotFDC = () => {
