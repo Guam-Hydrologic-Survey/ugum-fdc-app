@@ -9,8 +9,8 @@ However, the information developed in the streamflow studies were not readily av
 
 MAppFx, an online interactive map and graph application, applies JavaScript codes and libraries, to build the platform for the worldwide access of Guam’s flow duration analysis. MAppFx has recently been applied to make production well water quality history available worldwide. The Ugum River flow duration curve dataset is used as a manageable set in the first phase of the project. A second phase of this project will apply the MAppFx platform to the entire Southern Guam group of flow duration curves. 
 
-## WERI Technical Report No. (TBA)
-Published as a technical report on the WERI website's _Reports and Publications_ section, [here](https://weri.uog.edu/reports-and-publications/). It is also available through the Guam Hydrologic Survey website, [here](https://guamhydrologicsurvey.uog.edu/). 
+## WERI Technical Report No. 181
+Published as a technical report on the WERI website's _Reports and Publications_ section, [here](https://weri.uog.edu/reports-and-publications/). It is also available through the Guam Hydrologic Survey website, [here]([https://guamhydrologicsurvey.uog.edu/](https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/)https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/). 
 
 ## Authors
 NC Habana, PhD ‧ LF Heitz, PhD, PE ‧ DK Valerio 
