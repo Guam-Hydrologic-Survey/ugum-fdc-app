@@ -184,25 +184,25 @@ fetch(dataUrl)
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
   })
 
-function highlightFeature(e) {
-    const layer = e.target;
+// function highlightFeature(e) {
+//     const layer = e.target;
 
-    layer.setStyle({
-        weight: 5, 
-        color: 'white',
-        fillOpacity: 0.7,
-    });
+//     layer.setStyle({
+//         weight: 5, 
+//         color: 'white',
+//         fillOpacity: 0.7,
+//     });
 
-    layer.bringToFront();
-}
+//     layer.bringToFront();
+// }
 
-function resetHighlight(e) {
-    riverGeoJSON.resetStyle(e.target);
-}
+// function resetHighlight(e) {
+//     riverGeoJSON.resetStyle(e.target);
+// }
 
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-    });
-}
+// function onEachFeature(feature, layer) {
+//     layer.on({
+//         mouseover: highlightFeature,
+//         mouseout: resetHighlight,
+//     });
+// }
