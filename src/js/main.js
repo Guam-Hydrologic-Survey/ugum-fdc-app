@@ -8,6 +8,7 @@ const map = L.map('map', {
     center: center,
     zoom: defaultZoom,
     zoomControl: false,
+    // measureControl: true,
 })
 
 const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio MWZapata 2023`;
@@ -44,6 +45,9 @@ const controlBar = L.easyBar([
 ], { position: 'bottomright'})
 
 controlBar.addTo(map);
+
+var measureControl = L.control.measure({ position: 'bottomright' });
+measureControl.addTo(map);
 
 const mapTitle = L.control({ position: 'topleft' });
 
