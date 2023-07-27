@@ -9,6 +9,8 @@
     margin: 20px;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:wght@500&display=swap');
+
 .bs-btn-group {
     margin: 20px;
 }
@@ -20,6 +22,12 @@
 
 #about-txt {
     font-size: 14px;
+}
+
+#txt-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 #map {
