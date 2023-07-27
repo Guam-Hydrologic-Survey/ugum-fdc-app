@@ -34,6 +34,17 @@ L.control.zoom({
     position: 'bottomright',
 }).addTo(map);
 
+// Control: Reset map view (goes to initial map zoom on page load)
+var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
+    map.setView(center, 12);
+}, "Reset map view");
+
+const controlBar = L.easyBar([
+    resetZoomBtn,
+], { position: 'bottomright'})
+
+controlBar.addTo(map);
+
 const mapTitle = L.control({ position: 'topleft' });
 
 mapTitle.onAdd = function(map) {
