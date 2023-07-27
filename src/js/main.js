@@ -46,6 +46,7 @@ const controlBar = L.easyBar([
 
 controlBar.addTo(map);
 
+// TODO: find bug for drawing measurement (resets map view); customize properties and styles for better visibility on map
 var measureControl = L.control.measure({ position: 'bottomright' });
 measureControl.addTo(map);
 
