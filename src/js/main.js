@@ -222,7 +222,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     const getInfo = (feature, layer) => {
         // layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10]})
 
-        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
     }
     streamGages = L.geoJSON(geojson, { 
         pointToLayer:  function(feature, latlng) {
