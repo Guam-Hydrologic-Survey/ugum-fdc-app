@@ -200,6 +200,45 @@ fetch(dataUrl)
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
   })
 
+var streamGages;
+
+fetch('./src/data/STREAM_GAGES_USED.json')
+  .then(response => response.json())
+  .then(geojson => {
+    const getInfo = (feature, layer) => {
+        // layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10]})
+
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
+    }
+    streamGages = L.geoJSON(geojson, { 
+        pointToLayer:  function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: '#ccff33',
+                weight: 1,
+                fillOpacity: 1.0,
+                color: '#000',
+                opacity: 1.0,
+            })
+        },
+        onEachFeature: getInfo,
+    }).addTo(map);
+  })
+
+  var ugum_watershed;
+
+//   fetch('./src/data/UGUM_WATERSHED.json')
+//     .then(response => response.json)
+//     .then(geojson => {
+//         // const getInfo = (feature, layer) => {
+//         //     layer.bindPopup(`<span align="center">${features.properties.NAME} Watershed</span>`)
+//         // }
+
+//         // ugum_watershed = L.geoJSON(geojson, { onEachFeature: getInfo, }).addTo(map);
+
+//         // ugum_watershed = L.geoJSON(JSON.parse(geojson)).addTo(map)
+//     })
+
 // function highlightFeature(e) {
 //     const layer = e.target;
 
