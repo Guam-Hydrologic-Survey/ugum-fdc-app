@@ -40,6 +40,20 @@ var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() 
     map.setView(center, 12);
 }, "Reset map view");
 
+// map.on('zoomend', function(z) {
+//     var zoomLevel = map.getZoom();
+//     if (zoomLevel >= 10){
+//         [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+//             t.style.visibility = 'visible';
+//         });
+//     } else {
+//         [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+//             t.style.visibility = 'hidden';
+//         });
+//     }
+//     console.log(zoomLevel)
+// });
+
 const controlBar = L.easyBar([
     resetZoomBtn,
 ], { position: 'bottomright'})
