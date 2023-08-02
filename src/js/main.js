@@ -8,7 +8,6 @@ const map = L.map('map', {
     center: center,
     zoom: defaultZoom,
     zoomControl: false,
-    // measureControl: true,
 })
 
 const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio MWZapata 2023`;
@@ -40,29 +39,11 @@ var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() 
     map.setView(center, 12);
 }, "Reset map view");
 
-// map.on('zoomend', function(z) {
-//     var zoomLevel = map.getZoom();
-//     if (zoomLevel >= 10){
-//         [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
-//             t.style.visibility = 'visible';
-//         });
-//     } else {
-//         [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
-//             t.style.visibility = 'hidden';
-//         });
-//     }
-//     console.log(zoomLevel)
-// });
-
 const controlBar = L.easyBar([
     resetZoomBtn,
 ], { position: 'bottomright'})
 
 controlBar.addTo(map);
-
-// TODO: find bug for drawing measurement (resets map view); customize properties and styles for better visibility on map
-// var measureControl = L.control.measure({ position: 'bottomright' });
-// measureControl.addTo(map);
 
 const mapTitle = L.control({ position: 'topleft' });
 
@@ -220,7 +201,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   .then(response => response.json())
   .then(geojson => {
     const getInfo = (feature, layer) => {
-        // layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10]})
+        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
 
         layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
     }
@@ -240,38 +221,3 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   })
 
   var ugum_watershed;
-
-//   fetch('./src/data/UGUM_WATERSHED.json')
-//     .then(response => response.json)
-//     .then(geojson => {
-//         // const getInfo = (feature, layer) => {
-//         //     layer.bindPopup(`<span align="center">${features.properties.NAME} Watershed</span>`)
-//         // }
-
-//         // ugum_watershed = L.geoJSON(geojson, { onEachFeature: getInfo, }).addTo(map);
-
-//         // ugum_watershed = L.geoJSON(JSON.parse(geojson)).addTo(map)
-//     })
-
-// function highlightFeature(e) {
-//     const layer = e.target;
-
-//     layer.setStyle({
-//         weight: 5, 
-//         color: 'white',
-//         fillOpacity: 0.7,
-//     });
-
-//     layer.bringToFront();
-// }
-
-// function resetHighlight(e) {
-//     riverGeoJSON.resetStyle(e.target);
-// }
-
-// function onEachFeature(feature, layer) {
-//     layer.on({
-//         mouseover: highlightFeature,
-//         mouseout: resetHighlight,
-//     });
-// }
