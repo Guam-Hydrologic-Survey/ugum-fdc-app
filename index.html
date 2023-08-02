@@ -16,6 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js" integrity="sha512-ozq8xQKq6urvuU6jNgkfqAmT7jKN2XumbrX1JiB3TnF7tI48DPI4Gy1GXKD/V3EExgAs1V+pRO7vwtS1LHg0Gw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.css" integrity="sha512-vJfMKRRm4c4UupyPwGUZI8U651mSzbmmPgR3sdE3LcwBPsdGeARvUM5EcSTg34DK8YIRiIo+oJwNfZPMKEQyug==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Leaflet Easy Button -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
     <!-- Leaflet-MiniMap -->
     <link rel="stylesheet" href="./src/lib/leaflet-minimap/Control.MiniMap.css">
     <script src="./src/lib/leaflet-minimap/Control.MiniMap.js" type="text/javascript"></script>
@@ -31,9 +35,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
           crossorigin="anonymous"></script>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- main JS and CSS -->
     <link rel="stylesheet" href="./src/styles/main.css">
     <script src="./src/js/main.js" defer></script>
+
+    <!-- <script src="./src/lib/leaflet-measure/leaflet-measure.js"></script>
+    <link rel="stylesheet" href="./src/lib/leaflet-measure/leaflet-measure.css"> -->
 </head>
 <body>
     <!-- Button group -->
@@ -47,7 +57,7 @@
         </button>
 
         <!-- Home button: Directs to GHS website -->
-        <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/" target="_blank" rel="noreferrer noopener" role="button" title="Home">
+        <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/" target="_blank" rel="noreferrer noopener" role="button" title="Home">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
             <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
           </svg>
@@ -97,39 +107,33 @@
             </div>
             <div class="modal-body" id="about-txt">
               <p>
-                <br><br><br>
-                <strong><i>Southern Guam: Ugum Streamflow Duration Curves - WERI Technical Report No. ###</i></strong>
+                <span id="txt-title">WERI Technical Report No. 181<br>Southern Guam: Ugum Streamflow Duration Curves</span>
                 <br><br>
-                <strong>Abstract</strong><br>
-                The prediction of streamflow variability is essential in many different water resources evaluation studies. Defining long term flow variability is essential in studies such as hydropower feasibility, evaluating surface water resources for water supply studies, low and high flow studies such as in-stream flow requirements, and other studies where it is required to define the variability of flows in a stream.
+                Guam hydrologic information, of streamflow duration curves, is the second WERI online data visualization interface, a MAppFx product. The streamflow duration curves of the Ugum River in the Ugum Watershed, Southern Guam, are the first phase of streamflow duration curves that are available online. The flow duration curves are based on WERI analysis research (Heitz and Khosrowpanah, 2015). MAppFx is an intuitive data visualization interface that features a map of the Ugum River, as a polyline of segments that upon selection opens the section of the river’s flow duration curve (graph). This means of information transfer makes quick hydrologic reference of a select site along the river. The next phase updates the map to include all the flow duration curves segments from every mapped stream/river in Southern Guam. 
                 
-                Predicting flow variability is normally accomplished by direct analyses of streamflow data for the stream in question or by applying a hydrologic inferential technique from a gaged to an ungaged stream or from a gaged location on a stream to an ungaged location on that same stream. Of course, the most reliable means is to use actual stream flow data measured at the point of interest. In 2015, WERI hydrologists developed a means of predicting flow variability at ungaged sites in Southern Guam, applying streamflow duration curve analysis. 
-                
-                However, the information developed in the streamflow studies were not readily available to anyone making studies that rely on predicting long term streamflow variability at ungaged sections of the river. With MAppFx, making flow variability information easily available to those making future water resources studies is now available to everyone. The MAppFx platform is an online interactive map and graph interface. The user of MAppFx will have an interactive map, similar to Google® Earth controls, and map features (line, point, polygon), upon selection have the option to view an interactive graph of a dataset associated to the map feature. The result is an effective and modern means of hydrologic information transfer. 
-                
-                MAppFx, an online interactive map and graph application, applies JavaScript codes and libraries, to build the platform for the worldwide access of Guam’s flow duration analysis. MAppFx has recently been applied to make production well water quality history available worldwide. The Ugum River flow duration curve dataset is used as a manageable set in the first phase of the project. A second phase of this project will apply the MAppFx platform to the entire Southern Guam group of flow duration curves.<br><br>
+                While online data visualization is gaining popularity in the earth sciences, outreach is key to ensure interagency partners and researchers have access, familiarization, and utility training for complete product success. WERI has already introduced an early development introduction of this product in a WERI Guam Hydrologic Forum, November 2022, which received feedback of amazement and gratitude. Other upcoming WERI hosted venues will bring this product on stage to gain popularity and familiarization as a valuable data source for determining feasibility of watershed development.<br><br>
                 
                 <strong>Authors</strong><br>
-                NC Habana, PhD - LF Heitz, PhD, PE - DK Valerio<br><br>
+                NC Habana, PhD · LF Heitz, PhD, PE · DK Valerio <br><br>
                 
                 <strong>Contributors </strong><br>
-                DK Valerio - MW Zapata<br><br> 
+                DK Valerio · MW Zapata <br><br> 
                 
                 <strong>Acknowledgements</strong><br>
                 <i>Brigham Young University</i><br>
                 Civil Engineering Department, Hydroinformatics Laboratory <br>
-                Riley Hales, Dr. Gus Williams, Dr. Norm Jones <br><br>
+                Riley Hales · Dr. Gus Williams · Dr. Norm Jones <br><br>
                 
                 <i>Water & Environmental Research Institute of the Western Pacific</i> <br>
                 University of Guam <br>
-                Shahram Khosrowpanah, Mark A. Lander, Bill Whitman <br><br>
+                Shahram Khosrowpanah · Mark A. Lander · Bill Whitman <br><br>
                 
                 <i>University of Guam’s Web Team</i><br>
-                John Wiglesworth, Matthew Raymundo, UOG Web Team, Rommel Hidalgo
+                John Wiglesworth · Matthew Raymundo · UOG Web Team · Rommel Hidalgo
               </p>
             </div>
             <div class="modal-footer about-btns">
-              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/02/28/mappfx-production-well-nitrates-northern-guam-lens-aquifer-v2/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
+              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
               <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
             </div>
           </div>

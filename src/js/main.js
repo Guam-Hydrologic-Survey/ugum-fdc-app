@@ -34,6 +34,17 @@ L.control.zoom({
     position: 'bottomright',
 }).addTo(map);
 
+// Control: Reset map view (goes to initial map zoom on page load)
+var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
+    map.setView(center, 12);
+}, "Reset map view");
+
+const controlBar = L.easyBar([
+    resetZoomBtn,
+], { position: 'bottomright'})
+
+controlBar.addTo(map);
+
 const mapTitle = L.control({ position: 'topleft' });
 
 mapTitle.onAdd = function(map) {
@@ -182,27 +193,36 @@ fetch(dataUrl)
           layer.on('click', a => plotData = a.target.feature.properties)
       }
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
+
+      layerControl.addOverlay(riverGeoJSON, "Ugum Watershed Rivers")
   })
 
-function highlightFeature(e) {
-    const layer = e.target;
+var streamGages;
 
-    layer.setStyle({
-        weight: 5, 
-        color: 'white',
-        fillOpacity: 0.7,
-    });
+fetch('./src/data/STREAM_GAGES_USED.json')
+  .then(response => response.json())
+  .then(geojson => {
+    const getInfo = (feature, layer) => {
+        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
 
-    layer.bringToFront();
-}
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
+    }
+    
+    streamGages = L.geoJSON(geojson, { 
+        pointToLayer:  function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: '#ccff33',
+                weight: 1,
+                fillOpacity: 1.0,
+                color: '#000',
+                opacity: 1.0,
+            })
+        },
+        onEachFeature: getInfo,
+    }).addTo(map);
 
-function resetHighlight(e) {
-    riverGeoJSON.resetStyle(e.target);
-}
+    layerControl.addOverlay(streamGages, "USGS Stream Gages");
+  })
 
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-    });
-}
+  var ugum_watershed;
