@@ -193,6 +193,8 @@ fetch(dataUrl)
           layer.on('click', a => plotData = a.target.feature.properties)
       }
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
+
+      layerControl.addOverlay(riverGeoJSON, "Ugum Watershed Rivers")
   })
 
 var streamGages;
@@ -205,6 +207,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
 
         layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
     }
+    
     streamGages = L.geoJSON(geojson, { 
         pointToLayer:  function(feature, latlng) {
             return L.circleMarker(latlng, {
@@ -218,6 +221,8 @@ fetch('./src/data/STREAM_GAGES_USED.json')
         },
         onEachFeature: getInfo,
     }).addTo(map);
+
+    layerControl.addOverlay(streamGages, "USGS Stream Gages");
   })
 
   var ugum_watershed;
