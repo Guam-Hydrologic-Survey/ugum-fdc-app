@@ -117,6 +117,52 @@ const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/se
 
 var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
 
+var streamGages;
+
+fetch('./src/data/STREAM_GAGES_USED.json')
+  .then(response => response.json())
+  .then(geojson => {
+    const getInfo = (feature, layer) => {
+        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
+
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
+    }
+    
+    streamGages = L.geoJSON(geojson, { 
+        pointToLayer:  function(feature, latlng) {
+            return L.circleMarker(latlng, {
+                radius: 8,
+                fillColor: '#ccff33',
+                weight: 1,
+                fillOpacity: 1.0,
+                color: '#000',
+                opacity: 1.0,
+            })
+        },
+        onEachFeature: getInfo,
+    }).addTo(map);
+
+    layerControl.addOverlay(streamGages, "USGS Stream Gages");
+  })
+
+  var ugum_watershed; 
+
+  fetch('./src/data/ugum_watershed_wgs84_2.json')
+    .then(response => response.json())
+    .then(geojson => {
+        const getPoly = (feature, layer) => {
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: true, direction: 'bottom', offset: [0,10]})
+        }
+
+        ugum_watershed = L.geoJSON(geojson, { 
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+        layerControl.addOverlay(ugum_watershed, "Ugum Watershed");
+    })
+
 let plotData
 const plotFDC = () => {
     const eps = [0, 10, 30, 50, 80, 95]
@@ -196,49 +242,3 @@ fetch(dataUrl)
 
       layerControl.addOverlay(riverGeoJSON, "Ugum Watershed Rivers")
   })
-
-var streamGages;
-
-fetch('./src/data/STREAM_GAGES_USED.json')
-  .then(response => response.json())
-  .then(geojson => {
-    const getInfo = (feature, layer) => {
-        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
-
-        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
-    }
-    
-    streamGages = L.geoJSON(geojson, { 
-        pointToLayer:  function(feature, latlng) {
-            return L.circleMarker(latlng, {
-                radius: 8,
-                fillColor: '#ccff33',
-                weight: 1,
-                fillOpacity: 1.0,
-                color: '#000',
-                opacity: 1.0,
-            })
-        },
-        onEachFeature: getInfo,
-    }).addTo(map);
-
-    layerControl.addOverlay(streamGages, "USGS Stream Gages");
-  })
-
-  var ugum_watershed; 
-
-  fetch('./src/data/ugum_watershed_wgs84_2.json')
-    .then(response => response.json())
-    .then(geojson => {
-        const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,10]})
-        }
-
-        ugum_watershed = L.geoJSON(geojson, { 
-            style: {
-                color: '#FEB24C',
-                opacity: .5,
-            },
-            onEachFeature: getPoly, }).addTo(map);
-        layerControl.addOverlay(ugum_watershed, "Ugum Watershed");
-    })
