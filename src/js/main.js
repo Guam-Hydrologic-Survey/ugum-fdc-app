@@ -225,4 +225,20 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     layerControl.addOverlay(streamGages, "USGS Stream Gages");
   })
 
-  var ugum_watershed;
+  var ugum_watershed; 
+
+  fetch('./src/data/ugum_watershed_wgs84_2.json')
+    .then(response => response.json())
+    .then(geojson => {
+        const getPoly = (feature, layer) => {
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,10]})
+        }
+
+        ugum_watershed = L.geoJSON(geojson, { 
+            style: {
+                color: '#FEB24C',
+                opacity: .5,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+        layerControl.addOverlay(ugum_watershed, "Ugum Watershed");
+    })
