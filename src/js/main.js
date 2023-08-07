@@ -151,7 +151,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: true, direction: 'bottom', offset: [0,10]})
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,0]})
         }
 
         ugum_watershed = L.geoJSON(geojson, { 
@@ -216,6 +216,25 @@ function isEmpty(name, id) {
     return (title);
 }
 
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: 'white',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+}
+
+function resetHighlight(e) {
+    riverGeoJSON.resetStyle(e.target);
+}
+
 fetch(dataUrl)
   .then(response => response.json())
   .then(geojson => {
@@ -236,8 +255,13 @@ fetch(dataUrl)
             </div>
             `
           );
-          layer.on('click', a => plotData = a.target.feature.properties)
+          layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: a => plotData = a.target.feature.properties,
+          })
       }
+
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
 
       layerControl.addOverlay(riverGeoJSON, "Ugum Watershed Rivers")
