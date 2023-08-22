@@ -165,7 +165,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,0]})
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: true, direction: 'bottom', offset: [0,0]})
         }
 
         ugum_watershed = L.geoJSON(geojson, { 
