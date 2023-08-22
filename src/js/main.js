@@ -55,6 +55,20 @@ mapTitle.onAdd = function(map) {
 
 mapTitle.addTo(map);
 
+// Hides tooltip based on zoom level 
+map.on('zoomend', function(z) {
+    var zoomLevel = map.getZoom();
+    if (zoomLevel >= 15 ){
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+            t.style.visibility = 'visible';
+        });
+    } else {
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+            t.style.visibility = 'hidden';
+        });
+    }
+});
+
 // Draw control bar
 var drawnFeatures = new L.FeatureGroup();
 map.addLayer(drawnFeatures);
@@ -123,7 +137,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   .then(response => response.json())
   .then(geojson => {
     const getInfo = (feature, layer) => {
-        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
+        layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10]})
 
         layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
     }
@@ -151,7 +165,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,0]})
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: true, direction: 'bottom', offset: [0,0]})
         }
 
         ugum_watershed = L.geoJSON(geojson, { 
