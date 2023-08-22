@@ -55,3 +55,8 @@
     align-items: center;
     font-size: larger;
 }
+
+/* Hides tooltips on page load */
+.leaflet-tooltip {
+    visibility: hidden;
+  }
