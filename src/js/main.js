@@ -137,7 +137,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   .then(response => response.json())
   .then(geojson => {
     const getInfo = (feature, layer) => {
-        layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10]})
+        layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10], className: 'usgs-stream-gages-tooltip'})
         layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
     }
     
@@ -160,14 +160,24 @@ fetch('./src/data/STREAM_GAGES_USED.json')
 
   var ugum_watershed; 
 
+//   var tooltipClass = {
+//     'className': 'ugum-watershed-tooltip'
+//   }
+
   fetch('./src/data/ugum_watershed_wgs84_2.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: true, direction: 'bottom', offset: [0,0]})
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, 
+            {
+                permanent: true, direction: 'bottom', offset: [0,0], 
+                className: 'ugum-watershed-tooltip'
+                // ...tooltipClass
+            })
         }
 
         ugum_watershed = L.geoJSON(geojson, { 
+            interactive: false,
             style: {
                 color: '#FFEDA0',
                 opacity: .30,
