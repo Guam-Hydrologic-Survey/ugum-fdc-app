@@ -18,7 +18,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -39,7 +40,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -60,7 +62,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -81,7 +84,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16809600/#parameterCode=00065&period=P7D"
 			}
 		},
 		{
@@ -102,7 +106,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -123,7 +128,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -144,7 +150,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -165,7 +172,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -186,7 +194,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -207,7 +216,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -228,7 +238,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16809600/#parameterCode=00065&period=P7D"
 			}
 		},
 		{
@@ -249,7 +260,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16848100/#parameterCode=00065&period=P7D"
 			}
 		},
 		{
@@ -270,7 +282,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16848500/#parameterCode=00065&period=P7D"
 			}
 		},
 		{
@@ -291,7 +304,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -312,7 +326,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16854500/#parameterCode=00065&period=P7D"
 			}
 		},
 		{
@@ -333,7 +348,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -354,7 +370,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -375,7 +392,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "#"
 			}
 		},
 		{
@@ -396,7 +414,8 @@
 				"meth_": "",
 				"accr_": "",
 				"datum": "",
-				"lat_long": "NAD83"
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16865000/#parameterCode=00065&period=P7D"
 			}
 		}
 	]
