@@ -160,10 +160,6 @@ fetch('./src/data/STREAM_GAGES_USED.json')
 
   var ugum_watershed; 
 
-//   var tooltipClass = {
-//     'className': 'ugum-watershed-tooltip'
-//   }
-
   fetch('./src/data/ugum_watershed_wgs84_2.json')
     .then(response => response.json())
     .then(geojson => {
@@ -172,7 +168,6 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             {
                 permanent: true, direction: 'bottom', offset: [0,0], 
                 className: 'ugum-watershed-tooltip'
-                // ...tooltipClass
             })
         }
 
