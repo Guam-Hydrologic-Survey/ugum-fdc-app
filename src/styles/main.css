@@ -60,3 +60,38 @@
 .leaflet-tooltip {
     visibility: hidden;
   }
+
+/* customized tooltup for ugum watershed */
+.leaflet-tooltip.ugum-watershed-tooltip {
+    font-weight: 600;
+    font-size: 12px;
+    background: #FFEDA0;
+    color: #7A6400;
+    opacity: 40%;
+    border-radius: 30px;
+    border: transparent;
+    padding: 10px;
+}
+
+.leaflet-tooltip-top.ugum-watershed-tooltip:before,
+.leaflet-tooltip-bottom.ugum-watershed-tooltip:before,
+.leaflet-tooltip-left.ugum-watershed-tooltip:before,
+.leaflet-tooltip-right.ugum-watershed-tooltip:before {
+    position: absolute;
+    pointer-events: none;
+    border: 6px solid transparent;
+    background: transparent;
+    content: "";
+}
+
+/* customized tooltup for usgs tooltips */
+.leaflet-tooltip.usgs-stream-gages-tooltip {
+    /* background: #ccff33; */
+    font-weight: 600;
+    font-size: 12px;
+    color: #3D5200;
+    opacity: 40%;
+    border-radius: 30px;
+    border: transparent;
+    padding: 10px;
+}
