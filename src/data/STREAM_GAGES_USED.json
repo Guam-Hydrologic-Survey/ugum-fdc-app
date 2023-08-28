@@ -1,21 +1,422 @@
-{"type":"FeatureCollection", "features": [
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.68943296126605,13.403796292231418]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16807650,"NAME":"Aplacho River at Apra Heights, Guam","DATA":"Stream","DMS":"13°24'14.4\"","DMS1":"-144°41'23.1\"","LATITUDE":13.404,"LONGITUDE":144.68975,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.65955850456857,13.379077452894153]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16808300,"NAME":"FINILE CREEK AT AGAT, GUAM","DATA":"Stream","DMS":"13°22'44.8\"","DMS1":"-144°39'34.4\"","LATITUDE":13.379111,"LONGITUDE":144.659556,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.65915299227618,13.317500458230194]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16809400,"NAME":"CETTI RIVER NEAR UMATAC, GUAM","DATA":"Stream","DMS":"13°19'03.1\"","DMS1":"-144°39'33.0\"","LATITUDE":13.317528,"LONGITUDE":144.659167,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.66431303556124,13.30700302812844]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16809600,"NAME":"La Sa Fua River near Umatac, Guam","DATA":"Stream","DMS":"13°18'25.0\"","DMS1":"-144°39'51.9\"","LATITUDE":13.306944,"LONGITUDE":144.664417,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.6647251619755,13.298088793879465]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16816000,"NAME":"UMATAC RIVER AT UMATAC, GUAM","DATA":"Stream","DMS":"13°17'52.7\"","DMS1":"-144°39'54.8\"","LATITUDE":13.297972,"LONGITUDE":144.665222,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.6793056,13.27138889]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16821000,"NAME":"GEUS RIVER NR MERIZO, GUAM","DATA":"Stream","DMS":"13°16'17.0\"","DMS1":"-144°40'45.5\"","LATITUDE":13.271389,"LONGITUDE":144.679306,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.7398889,13.27952778]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16835000,"NAME":"INARAJAN RIVER NR INARAJAN, GUAM","DATA":"Stream","DMS":"13°16'46.3\"","DMS1":"-144°44'23.6\"","LATITUDE":13.279528,"LONGITUDE":144.739889,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.75340595393152,13.287601822093167]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16840000,"NAME":"TINAGA RIVER NR INARAJAN, GUAM","DATA":"Stream","DMS":"13°17'15.2\"","DMS1":"-144°45'12.2\"","LATITUDE":13.287556,"LONGITUDE":144.753389,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.714480324684,13.366878329609435]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16845000,"NAME":"TOLAEYUUS RIVER NEAR AGAT, GUAM","DATA":"Stream","DMS":"13°22'00.7\"","DMS1":"-144°42'51.1\"","LATITUDE":13.366861,"LONGITUDE":144.714194,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.71080123720353,13.359808918946603]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16846000,"NAME":"Tolaeyuus River at mouth near Agat, Guam","DATA":"Stream","DMS":"13°21'35.3\"","DMS1":"-144°42'39.2\"","LATITUDE":13.359806,"LONGITUDE":144.710889,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.70146617931738,13.33900487943238]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16847000,"NAME":"Imong River near Agat, Guam","DATA":"Stream","DMS":"13°20'20.4\"","DMS1":"-144°42'05.5\"","LATITUDE":13.339,"LONGITUDE":144.701528,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.69553036566896,13.346718002389213]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16848100,"NAME":"Almagosa River near Agat, Guam","DATA":"Stream","DMS":"13°20'48.2\"","DMS1":"-144°41'43.8\"","LATITUDE":13.346722,"LONGITUDE":144.6955,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.69789288700406,13.355412917056938]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16848500,"NAME":"Maulap River near Agat, Guam","DATA":"Stream","DMS":"13°21'19.6\"","DMS1":"-144°41'52.6\"","LATITUDE":13.355444,"LONGITUDE":144.697944,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.7329584419506,13.353022787997842]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16850000,"NAME":"TALOFOFO RIVER NEAR TALOFOFO, GUAM","DATA":"Stream","DMS":"13°21'11.0\"","DMS1":"-144°43'58.8\"","LATITUDE":13.353056,"LONGITUDE":144.733,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.73615743815816,13.32256725938388]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16854500,"NAME":"Ugum River above Talofofo Falls, nr Talofofo, Guam","DATA":"Stream","DMS":"13°19'20.7\"","DMS1":"-144°44'10.1\"","LATITUDE":13.322417,"LONGITUDE":144.736139,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.75098055609038,13.335465825264848]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16855000,"NAME":"UGUM RIVER NR TALOFOFO, GUAM","DATA":"Stream","DMS":"13°20'07.4\"","DMS1":"-144°45'03.3\"","LATITUDE":13.335389,"LONGITUDE":144.750917,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.75383285386175,13.392557893451864]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16858000,"NAME":"Ylig River near Yona, Guam","DATA":"Stream","DMS":"13°23'33.2\"","DMS1":"-144°45'13.8\"","LATITUDE":13.392556,"LONGITUDE":144.753833,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.75544071094637,13.43644044724635]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16862000,"NAME":"LONFIT RIVER NEAR ORDOT, GUAM","DATA":"Stream","DMS":"13°26'10.9\"","DMS1":"-144°45'20.0\"","LATITUDE":13.436361,"LONGITUDE":144.755556,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}},
-{"type":"Feature","geometry":{"type":"Point","coordinates":[144.75603781853454,13.436740467691756]},"properties":{"AGENCY":"USGS","GAGE_NUMBE":16865000,"NAME":"Pago River near Ordot, Guam","DATA":"Stream","DMS":"13°26'12.5\"","DMS1":"-144°45'21.7\"","LATITUDE":13.436806,"LONGITUDE":144.756028,"meth_":"","accr_":"","datum":"","lat_long":"NAD83"}}
-]}
+{
+	"type": "FeatureCollection",
+	"features": [{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.68943296126605, 13.403796292231418]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16807650,
+				"NAME": "Aplacho River at Apra Heights, Guam",
+				"DATA": "Stream",
+				"DMS": "13°24'14.4\"",
+				"DMS1": "-144°41'23.1\"",
+				"LATITUDE": 13.404,
+				"LONGITUDE": 144.68975,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.65955850456857, 13.379077452894153]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16808300,
+				"NAME": "FINILE CREEK AT AGAT, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°22'44.8\"",
+				"DMS1": "-144°39'34.4\"",
+				"LATITUDE": 13.379111,
+				"LONGITUDE": 144.659556,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.65915299227618, 13.317500458230194]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16809400,
+				"NAME": "CETTI RIVER NEAR UMATAC, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°19'03.1\"",
+				"DMS1": "-144°39'33.0\"",
+				"LATITUDE": 13.317528,
+				"LONGITUDE": 144.659167,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.66431303556124, 13.30700302812844]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16809600,
+				"NAME": "La Sa Fua River near Umatac, Guam",
+				"DATA": "Stream",
+				"DMS": "13°18'25.0\"",
+				"DMS1": "-144°39'51.9\"",
+				"LATITUDE": 13.306944,
+				"LONGITUDE": 144.664417,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16809600/#parameterCode=00065&period=P7D"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.6647251619755, 13.298088793879465]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16816000,
+				"NAME": "UMATAC RIVER AT UMATAC, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°17'52.7\"",
+				"DMS1": "-144°39'54.8\"",
+				"LATITUDE": 13.297972,
+				"LONGITUDE": 144.665222,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.6793056, 13.27138889]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16821000,
+				"NAME": "GEUS RIVER NR MERIZO, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°16'17.0\"",
+				"DMS1": "-144°40'45.5\"",
+				"LATITUDE": 13.271389,
+				"LONGITUDE": 144.679306,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.7398889, 13.27952778]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16835000,
+				"NAME": "INARAJAN RIVER NR INARAJAN, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°16'46.3\"",
+				"DMS1": "-144°44'23.6\"",
+				"LATITUDE": 13.279528,
+				"LONGITUDE": 144.739889,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.75340595393152, 13.287601822093167]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16840000,
+				"NAME": "TINAGA RIVER NR INARAJAN, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°17'15.2\"",
+				"DMS1": "-144°45'12.2\"",
+				"LATITUDE": 13.287556,
+				"LONGITUDE": 144.753389,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.714480324684, 13.366878329609435]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16845000,
+				"NAME": "TOLAEYUUS RIVER NEAR AGAT, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°22'00.7\"",
+				"DMS1": "-144°42'51.1\"",
+				"LATITUDE": 13.366861,
+				"LONGITUDE": 144.714194,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.71080123720353, 13.359808918946603]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16846000,
+				"NAME": "Tolaeyuus River at mouth near Agat, Guam",
+				"DATA": "Stream",
+				"DMS": "13°21'35.3\"",
+				"DMS1": "-144°42'39.2\"",
+				"LATITUDE": 13.359806,
+				"LONGITUDE": 144.710889,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.70146617931738, 13.33900487943238]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16847000,
+				"NAME": "Imong River near Agat, Guam",
+				"DATA": "Stream",
+				"DMS": "13°20'20.4\"",
+				"DMS1": "-144°42'05.5\"",
+				"LATITUDE": 13.339,
+				"LONGITUDE": 144.701528,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16847000/#parameterCode=00065&period=P7D"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.69553036566896, 13.346718002389213]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16848100,
+				"NAME": "Almagosa River near Agat, Guam",
+				"DATA": "Stream",
+				"DMS": "13°20'48.2\"",
+				"DMS1": "-144°41'43.8\"",
+				"LATITUDE": 13.346722,
+				"LONGITUDE": 144.6955,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16848100/#parameterCode=00065&period=P7D"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.69789288700406, 13.355412917056938]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16848500,
+				"NAME": "Maulap River near Agat, Guam",
+				"DATA": "Stream",
+				"DMS": "13°21'19.6\"",
+				"DMS1": "-144°41'52.6\"",
+				"LATITUDE": 13.355444,
+				"LONGITUDE": 144.697944,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16848500/#parameterCode=00065&period=P7D"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.7329584419506, 13.353022787997842]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16850000,
+				"NAME": "TALOFOFO RIVER NEAR TALOFOFO, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°21'11.0\"",
+				"DMS1": "-144°43'58.8\"",
+				"LATITUDE": 13.353056,
+				"LONGITUDE": 144.733,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.73615743815816, 13.32256725938388]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16854500,
+				"NAME": "Ugum River above Talofofo Falls, nr Talofofo, Guam",
+				"DATA": "Stream",
+				"DMS": "13°19'20.7\"",
+				"DMS1": "-144°44'10.1\"",
+				"LATITUDE": 13.322417,
+				"LONGITUDE": 144.736139,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16854500/#parameterCode=00065&period=P7D"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.75098055609038, 13.335465825264848]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16855000,
+				"NAME": "UGUM RIVER NR TALOFOFO, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°20'07.4\"",
+				"DMS1": "-144°45'03.3\"",
+				"LATITUDE": 13.335389,
+				"LONGITUDE": 144.750917,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.75383285386175, 13.392557893451864]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16858000,
+				"NAME": "Ylig River near Yona, Guam",
+				"DATA": "Stream",
+				"DMS": "13°23'33.2\"",
+				"DMS1": "-144°45'13.8\"",
+				"LATITUDE": 13.392556,
+				"LONGITUDE": 144.753833,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.75544071094637, 13.43644044724635]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16862000,
+				"NAME": "LONFIT RIVER NEAR ORDOT, GUAM",
+				"DATA": "Stream",
+				"DMS": "13°26'10.9\"",
+				"DMS1": "-144°45'20.0\"",
+				"LATITUDE": 13.436361,
+				"LONGITUDE": 144.755556,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "#"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+				"type": "Point",
+				"coordinates": [144.75603781853454, 13.436740467691756]
+			},
+			"properties": {
+				"AGENCY": "USGS",
+				"GAGE_NUMBE": 16865000,
+				"NAME": "Pago River near Ordot, Guam",
+				"DATA": "Stream",
+				"DMS": "13°26'12.5\"",
+				"DMS1": "-144°45'21.7\"",
+				"LATITUDE": 13.436806,
+				"LONGITUDE": 144.756028,
+				"meth_": "",
+				"accr_": "",
+				"datum": "",
+				"lat_long": "NAD83",
+				"USGS_link": "https://waterdata.usgs.gov/monitoring-location/16865000/#parameterCode=00065&period=P7D"
+			}
+		}
+	]
+}

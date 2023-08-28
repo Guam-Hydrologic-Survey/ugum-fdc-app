@@ -2,7 +2,7 @@ const dataUrl = './src/data/rivers.json';
 
 const center = [13.3578327,144.6614373];
 const defaultZoom = 12;
-const maxZoom = 20;
+const maxZoom = 19;
 
 const map = L.map('map', {
     center: center,
@@ -12,20 +12,36 @@ const map = L.map('map', {
 
 const devs = ` | <a href="https://weri.uog.edu/">WERI</a>-<a href="https://guamhydrologicsurvey.uog.edu/">GHS</a>: NCHabana, LFHeitz, DKValerio MWZapata 2023`;
 
+// Open Street Map tiles
 const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: maxZoom,
-    attribution: '© OpenStreetMap' + devs
+    attribution: '© OpenStreetMap' + devs,
 });
 
-// ESRI World Imagery 
+// ESRI World Imagery tiles 
 const ewi = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: maxZoom,
-	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs,
 }).addTo(map); 
+
+// ESRI World Gray Canvas 
+var ewgc = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ' + devs,
+	maxZoom: maxZoom,
+});
+
+// Carto DB Dark Matter tiles
+var cdbd = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' + devs,
+	subdomains: 'abcd',
+	maxZoom: maxZoom,
+});
 
 const baseLayers = {
     'ESRI World Imagery': ewi,
     'Open Street Map': osm,
+    'Gray Canvas': ewgc,
+    'Dark Canvas': cdbd,
 }
 
 const layerControl = L.control.layers(baseLayers, null, { position: 'bottomright'}).addTo(map);
@@ -54,6 +70,20 @@ mapTitle.onAdd = function(map) {
 }
 
 mapTitle.addTo(map);
+
+// Hides tooltip based on zoom level 
+map.on('zoomend', function(z) {
+    var zoomLevel = map.getZoom();
+    if (zoomLevel >= 15 ){
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+            t.style.visibility = 'visible';
+        });
+    } else {
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+            t.style.visibility = 'hidden';
+        });
+    }
+});
 
 // Draw control bar
 var drawnFeatures = new L.FeatureGroup();
@@ -123,9 +153,8 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   .then(response => response.json())
   .then(geojson => {
     const getInfo = (feature, layer) => {
-        layer.bindTooltip('USGS Stream Gage', {permanent: false, direction: 'bottom', offset: [0,10]})
-
-        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i>${feature.properties.NAME}</i></span>`);
+        layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10], className: 'usgs-stream-gages-tooltip'})
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i><a href=${feature.properties.USGS_link} target="_blank" rel="noreferrer noopener">${feature.properties.NAME}</i></a></span>`);
     }
     
     streamGages = L.geoJSON(geojson, { 
@@ -151,10 +180,15 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, {permanent: false, direction: 'bottom', offset: [0,0]})
+            layer.bindTooltip(`${feature.properties.NAME} Watershed`, 
+            {
+                permanent: true, direction: 'bottom', offset: [0,0], 
+                className: 'ugum-watershed-tooltip'
+            })
         }
 
         ugum_watershed = L.geoJSON(geojson, { 
+            interactive: false,
             style: {
                 color: '#FFEDA0',
                 opacity: .30,
