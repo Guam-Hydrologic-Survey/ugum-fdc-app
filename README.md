@@ -2,6 +2,7 @@
 
 <p align="center">
 <img src="./src/assets/MAppFx-Ugum-FDC_Preview01.png"/>
+Figure 1. Preview of river selection with information pop-up.
 </p>
 
 ## Abstract 
