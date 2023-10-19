@@ -175,6 +175,8 @@ fetch('./src/data/STREAM_GAGES_USED.json')
   })
 
   var watersheds; 
+  let watershedNames;
+  const watershedColors = ['#40768C', '#4ED0C1', '#F4E3B8', '#FAD3B3', '#F3B5A5'] 
 
   fetch('./src/data/watersheds_lat_lon_wgs84.json')
     .then(response => response.json())
@@ -190,6 +192,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
         watersheds = L.geoJSON(geojson, { 
             interactive: false,
             style: {
+                // assign random color: watershedColors[Math.floor(Math.random() * watershedColors.length)]
                 color: '#FFEDA0',
                 opacity: .30,
             },
