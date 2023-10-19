@@ -62,7 +62,7 @@
   }
 
 /* customized tooltup for ugum watershed */
-.leaflet-tooltip.ugum-watershed-tooltip {
+.leaflet-tooltip.watershed-tooltip {
     font-weight: 600;
     font-size: 12px;
     background: #FFEDA0;
@@ -70,13 +70,13 @@
     opacity: 40%;
     border-radius: 30px;
     border: transparent;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
-.leaflet-tooltip-top.ugum-watershed-tooltip:before,
-.leaflet-tooltip-bottom.ugum-watershed-tooltip:before,
-.leaflet-tooltip-left.ugum-watershed-tooltip:before,
-.leaflet-tooltip-right.ugum-watershed-tooltip:before {
+.leaflet-tooltip-top.watershed-tooltip:before,
+.leaflet-tooltip-bottom.watershed-tooltip:before,
+.leaflet-tooltip-left.watershed-tooltip:before,
+.leaflet-tooltip-right.watershed-tooltip:before {
     position: absolute;
     pointer-events: none;
     border: 6px solid transparent;
