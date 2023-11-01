@@ -303,3 +303,15 @@ fetch(dataUrl)
 
       layerControl.addOverlay(riverGeoJSON, "Rivers")
   })
+
+  var watershedOverlays = [
+    {
+        group: "Watersheds",
+        layers: [
+            {
+                name: ,
+                layer: ,
+            }
+        ]
+    }
+]
