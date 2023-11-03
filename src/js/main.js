@@ -196,7 +196,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             interactive: false,
             style: {
                 // assign random color: watershedColors[Math.floor(Math.random() * watershedColors.length)]
-                color: '#FFEDA0',
+                color: '#4CC9F0',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -208,7 +208,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#F72585',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -220,7 +220,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#FF9500',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -232,7 +232,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#FFEB0A',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -244,7 +244,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#4895EF',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -256,7 +256,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#70E000',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -268,7 +268,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#F962A6',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -280,7 +280,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#FAA307',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -292,7 +292,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#4CC9F0',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -304,7 +304,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#7209B7',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -316,7 +316,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#38B000',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -328,7 +328,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#B5179E',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
@@ -340,7 +340,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#4895EF',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map); 
@@ -352,7 +352,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             }, 
             interactive: false,
             style: {
-                color: '#FFEDA0',
+                color: '#9EF01A',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
