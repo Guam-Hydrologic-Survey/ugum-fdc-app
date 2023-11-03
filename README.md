@@ -1,5 +1,10 @@
 <h1 align="center">Southern Guam MAppFx: Ugum Watershed Streamflow Duration Curves</h1>
 
+<p align="center">
+<img src="./src/assets/MAppFx-Ugum-FDC_Preview01.png"/>
+Figure 1. Preview of river selection with information pop-up.
+</p>
+
 ## Abstract 
 The prediction of streamflow variability is essential in many different water resources evaluation studies. Defining long term flow variability is essential in studies such as hydropower feasibility, evaluating surface water resources for water supply studies, low and high flow studies such as in-stream flow requirements, and other studies where it is required to define the variability of flows in a stream.
 
@@ -9,8 +14,10 @@ However, the information developed in the streamflow studies were not readily av
 
 MAppFx, an online interactive map and graph application, applies JavaScript codes and libraries, to build the platform for the worldwide access of Guam’s flow duration analysis. MAppFx has recently been applied to make production well water quality history available worldwide. The Ugum River flow duration curve dataset is used as a manageable set in the first phase of the project. A second phase of this project will apply the MAppFx platform to the entire Southern Guam group of flow duration curves. 
 
+> __Keywords__: data visualization, online information transfer, Southern Guam, Ugum watershed, flow variability, streamflow duraction curve analysis, web application
+
 ## WERI Technical Report No. 181
-Published as a technical report on the WERI website's _Reports and Publications_ section, [here](https://weri.uog.edu/reports-and-publications/). It is also available through the Guam Hydrologic Survey website, [here](https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/). 
+Published as a technical report on July 2023 and is available through the WERI website's _Reports and Publications_ section, [here](https://weri.uog.edu/reports-and-publications/). It is also available on the Guam Hydrologic Survey website, [here](https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/). 
 
 ## Authors
 NC Habana, PhD ‧ LF Heitz, PhD, PE ‧ DK Valerio 

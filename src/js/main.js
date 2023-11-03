@@ -1,4 +1,4 @@
-const dataUrl = './src/data/rivers.json';
+const dataUrl = './src/data/river2_lat_lon_wgs84.json';
 
 const center = [13.3578327,144.6614373];
 const defaultZoom = 12;
@@ -71,15 +71,15 @@ mapTitle.onAdd = function(map) {
 
 mapTitle.addTo(map);
 
-// Hides tooltip based on zoom level 
+// Hides tooltip based on zoom level for USGS stream gages 
 map.on('zoomend', function(z) {
     var zoomLevel = map.getZoom();
-    if (zoomLevel >= 15 ){
-        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+    if (zoomLevel >= 13 ){
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
             t.style.visibility = 'visible';
         });
     } else {
-        [].forEach.call(document.querySelectorAll('.leaflet-tooltip'), function (t) {
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
             t.style.visibility = 'hidden';
         });
     }
@@ -174,27 +174,30 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     layerControl.addOverlay(streamGages, "USGS Stream Gages");
   })
 
-  var ugum_watershed; 
+  var watersheds; 
+  let watershedNames;
+  const watershedColors = ['#40768C', '#4ED0C1', '#F4E3B8', '#FAD3B3', '#F3B5A5'] 
 
-  fetch('./src/data/ugum_watershed_wgs84_2.json')
+  fetch('./src/data/watersheds_lat_lon_wgs84.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
-            layer.bindTooltip(`${feature.properties.NAME} Watershed`, 
+            layer.bindTooltip(`${feature.properties.Name}`, 
             {
-                permanent: true, direction: 'bottom', offset: [0,0], 
-                className: 'ugum-watershed-tooltip'
+                permanent: true, direction: 'center', offset: [0,0], 
+                className: 'watershed-tooltip'
             })
         }
 
-        ugum_watershed = L.geoJSON(geojson, { 
+        watersheds = L.geoJSON(geojson, { 
             interactive: false,
             style: {
+                // assign random color: watershedColors[Math.floor(Math.random() * watershedColors.length)]
                 color: '#FFEDA0',
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-        layerControl.addOverlay(ugum_watershed, "Ugum Watershed");
+        layerControl.addOverlay(watersheds, "Southern Guam Watersheds");
     })
 
 let plotData
@@ -298,5 +301,5 @@ fetch(dataUrl)
 
       riverGeoJSON = L.geoJSON(geojson, { onEachFeature: getFDCValues }).addTo(map);
 
-      layerControl.addOverlay(riverGeoJSON, "Ugum Watershed Rivers")
+      layerControl.addOverlay(riverGeoJSON, "Rivers")
   })
