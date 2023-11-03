@@ -359,6 +359,76 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             layerControl.addOverlay(apraWatershed, "Apra Watershed");
 
         watersheds = L.layerGroup([pagoWatershed, yligWatershed, talofofoWatershed, ugumWatershed, dandanWatershed, inarajanWatershed, manellWatershed, geusWatershed, toguanWatershed, umatacWatershed, cettiWatershed, taelayagWatershed, agatWatershed, apraWatershed]).addTo(map);
+
+        var watershedOverlays = [
+            {
+                group: "Watersheds",
+                layers: [
+                    {
+                        name: 'Pago',
+                        layer: pagoWatershed,
+                    },
+                    {
+                        name: 'Ylig',
+                        layer: yligWatershed,
+                    },
+                    {
+                        name: 'Talofofo',
+                        layer: talofofoWatershed,
+                    },
+                    {
+                        name: 'Ugum',
+                        layer: ugumWatershed,
+                    },
+                    {
+                        name: 'Dandan',
+                        layer: dandanWatershed,
+                    },
+                    {
+                        name: 'Inarajan',
+                        layer: inarajanWatershed,
+                    },
+                    {
+                        name: 'Manell',
+                        layer: manellWatershed,
+                    },
+                    {
+                        name: 'Geus',
+                        layer: geusWatershed,
+                    },
+                    {
+                        name: 'Toguan',
+                        layer: toguanWatershed,
+                    },
+                    {
+                        name: 'Umatac',
+                        layer: umatacWatershed,
+                    },
+                    {
+                        name: 'Cetti',
+                        layer: cettiWatershed,
+                    },
+                    {
+                        name: 'Taelayag',
+                        layer: taelayagWatershed,
+                    },
+                    {
+                        name: 'Agat',
+                        layer: agatWatershed,
+                    },
+                    {
+                        name: 'Apra',
+                        layer: apraWatershed,
+                    },
+                ]
+            }
+        ]
+        
+        var panelLayers = new L.Control.PanelLayers(watershedOverlays, {
+            selectorGroup: true
+        });
+        
+        map.addControl(panelLayers);
         })
 
 let plotData
@@ -465,14 +535,3 @@ fetch(dataUrl)
       layerControl.addOverlay(riverGeoJSON, "Rivers")
   })
 
-//   var watershedOverlays = [
-//     {
-//         group: "Watersheds",
-//         layers: [
-//             {
-//                 name: '',
-//                 layer: ,
-//             }
-//         ]
-//     }
-// ]
