@@ -189,7 +189,10 @@ fetch('./src/data/STREAM_GAGES_USED.json')
             })
         }
 
-        watersheds = L.geoJSON(geojson, { 
+        const pagoWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "PAGO WATERSHED";
+            }, 
             interactive: false,
             style: {
                 // assign random color: watershedColors[Math.floor(Math.random() * watershedColors.length)]
@@ -197,8 +200,166 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-        layerControl.addOverlay(watersheds, "Southern Guam Watersheds");
-    })
+            layerControl.addOverlay(pagoWatershed, "Pago Watershed");
+        
+        const yligWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "YLIG WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(yligWatershed, "Ylig Watershed");
+
+        const talofofoWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "TALOFOFO WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(talofofoWatershed, "Talofofo Watershed");
+        
+        const ugumWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "UGUM WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(ugumWatershed, "Ugum Watershed");
+        
+        const dandanWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "DANDAN WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(dandanWatershed, "Dandan Watershed");
+        
+        const inarajanWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "INARAJAN WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(inarajanWatershed, "Inarajan Watershed");
+        
+        const manellWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "MANELL WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(manellWatershed, "Manell Watershed");
+        
+        const geusWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "GEUS WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(geusWatershed, "Geus Watershed");
+
+        const toguanWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "TOGUAN WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(toguanWatershed, "Toguan Watershed");
+
+        const umatacWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "UMATAC WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(umatacWatershed, "Umatac Watershed");
+
+        const cettiWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "CETTI WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(cettiWatershed, "Cetti Watershed");
+        
+        const taelayagWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "TAELAYAG WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(taelayagWatershed, "Taelayag Watershed");
+        
+        const agatWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "AGAT WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map); 
+            layerControl.addOverlay(agatWatershed, "Agat Watershed");
+        
+        const apraWatershed = L.geoJSON(geojson, {
+            filter: function(feature, layer) {
+                return (feature.properties.Name) == "APRA WATERSHED";
+            }, 
+            interactive: false,
+            style: {
+                color: '#FFEDA0',
+                opacity: .30,
+            },
+            onEachFeature: getPoly, }).addTo(map);
+            layerControl.addOverlay(apraWatershed, "Apra Watershed");
+
+        watersheds = L.layerGroup([pagoWatershed, yligWatershed, talofofoWatershed, ugumWatershed, dandanWatershed, inarajanWatershed, manellWatershed, geusWatershed, toguanWatershed, umatacWatershed, cettiWatershed, taelayagWatershed, agatWatershed, apraWatershed]).addTo(map);
+        })
 
 let plotData
 const plotFDC = () => {
@@ -304,14 +465,14 @@ fetch(dataUrl)
       layerControl.addOverlay(riverGeoJSON, "Rivers")
   })
 
-  var watershedOverlays = [
-    {
-        group: "Watersheds",
-        layers: [
-            {
-                name: ,
-                layer: ,
-            }
-        ]
-    }
-]
+//   var watershedOverlays = [
+//     {
+//         group: "Watersheds",
+//         layers: [
+//             {
+//                 name: '',
+//                 layer: ,
+//             }
+//         ]
+//     }
+// ]
