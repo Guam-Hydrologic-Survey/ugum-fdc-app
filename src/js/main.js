@@ -38,131 +38,28 @@ var cdbd = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r
 });
 
 const baseLayers = {
-    'ESRI World Imagery': ewi,
-    'Open Street Map': osm,
-    'Gray Canvas': ewgc,
-    'Dark Canvas': cdbd,
+    // 'ESRI World Imagery': ewi,
+    // 'Open Street Map': osm,
+    // 'Gray Canvas': ewgc,
+    // 'Dark Canvas': cdbd,
 }
 
-// const baseLayers = {
-//     "Base Maps": {
-//         "ESRI World Imagery": ewi,
-//         "Open Street Map": osm,
-//         "Gray Canvas": ewgc,
-//         "Dark Canvas": cdbd
-//     }
-// }
-
-const layerControl = L.control.layers(baseLayers, null, { position: 'bottomright'}).addTo(map);
-
-// var groupedLayersOptions = {
-//     exclusiveGroups: ["Base Maps"],
-//     groupCheckboxes: true, 
-//     position: 'bottomright'
-// };
-
-// const layerControl = L.control.groupedLayers(baseLayers, groupedLayersOptions).addTo(map)
-
-L.control.zoom({
-    position: 'bottomright',
-}).addTo(map);
-
-// Control: Reset map view (goes to initial map zoom on page load)
-var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
-    map.setView(center, 12);
-}, "Reset map view");
-
-const controlBar = L.easyBar([
-    resetZoomBtn,
-], { position: 'bottomright'})
-
-controlBar.addTo(map);
-
-const mapTitle = L.control({ position: 'topleft' });
-
-mapTitle.onAdd = function(map) {
-    this._div = L.DomUtil.create('div', 'mapTitle'); 
-    this._div.innerHTML = '<img src="./src/assets/WERI MAppFx_Title Card_Ugum FDC.png" height="150">';
-    return this._div;
-}
-
-mapTitle.addTo(map);
-
-// Hides tooltip based on zoom level for USGS stream gages 
-map.on('zoomend', function(z) {
-    var zoomLevel = map.getZoom();
-    if (zoomLevel >= 13 ){
-        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
-            t.style.visibility = 'visible';
-        });
-    } else {
-        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
-            t.style.visibility = 'hidden';
-        });
+const bases = {
+    "Base Maps": {
+        "ESRI World Imagery": ewi,
+        "Open Street Map": osm,
+        "Gray Canvas": ewgc,
+        "Dark Canvas": cdbd
     }
-});
-
-// Draw control bar
-var drawnFeatures = new L.FeatureGroup();
-map.addLayer(drawnFeatures);
-
-var drawControl = new L.Control.Draw({
-    position: "bottomright",
-    draw: {
-        polyline: {
-            allowIntersection: true,
-            shapeOptions: {
-                color: "orange"
-            }
-        },
-        polygon: {
-            allowIntersection: false,
-            showArea: true,
-            showLength: true,
-            shapeOptions: {
-                color: "purple",
-                clickable: true
-            }
-        },
-        circle: {
-            shapeOptions: {
-                shapeOptions: {
-                    color: "blue",
-                    clickable: true
-                }
-            }
-        },
-        circlemarker: false,
-        rectangle: {
-            showArea: true,
-            showLength: true,
-            shapeOptions: {
-                color: "green",
-                clickable: true
-            }
-        },
-        marker: false
-    },
-    edit: {
-        featureGroup: drawnFeatures,
-        remove: true,
-    }
-});
-
-map.addControl(drawControl);
-
-map.on(L.Draw.Event.CREATED, function(event) {
-    var layer = event.layer;
-    drawnFeatures.addLayer(layer);
-});
-
-if (map.hasLayer(drawnFeatures)) {
-    layerControl.addOverlay(drawnFeatures, "Drawings");
 }
 
-const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 8, maxZoom: 14, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
+var groupedLayersOptions = {
+    exclusiveGroups: ["Base Maps"],
+    groupCheckboxes: true, 
+    position: 'bottomright'
+};
 
-var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
+const layerControl = L.control.groupedLayers(baseLayers, bases, groupedLayersOptions).addTo(map)
 
 var streamGages;
 
@@ -191,11 +88,10 @@ fetch('./src/data/STREAM_GAGES_USED.json')
     layerControl.addOverlay(streamGages, "USGS Stream Gages");
   })
 
-  var watersheds; 
-  let watershedNames;
-  const watershedColors = ['#40768C', '#4ED0C1', '#F4E3B8', '#FAD3B3', '#F3B5A5'] 
+const watershedColors = ['#40768C', '#4ED0C1', '#F4E3B8', '#FAD3B3', '#F3B5A5'] 
+var watersheds;
 
-  fetch('./src/data/watersheds_lat_lon_wgs84.json')
+fetch('./src/data/watersheds_lat_lon_wgs84.json')
     .then(response => response.json())
     .then(geojson => {
         const getPoly = (feature, layer) => {
@@ -217,7 +113,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(pagoWatershed, "Pago Watershed");
+            layerControl.addOverlay(pagoWatershed, "Pago", "Watersheds");
         
         const yligWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -229,7 +125,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(yligWatershed, "Ylig Watershed");
+            layerControl.addOverlay(yligWatershed, "Ylig", "Watersheds");
 
         const talofofoWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -241,7 +137,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(talofofoWatershed, "Talofofo Watershed");
+            layerControl.addOverlay(talofofoWatershed, "Talofofo", "Watersheds");
         
         const ugumWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -253,7 +149,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(ugumWatershed, "Ugum Watershed");
+            layerControl.addOverlay(ugumWatershed, "Ugum", "Watersheds");
         
         const dandanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -265,7 +161,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(dandanWatershed, "Dandan Watershed");
+            layerControl.addOverlay(dandanWatershed, "Dandan", "Watersheds");
         
         const inarajanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -277,7 +173,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(inarajanWatershed, "Inarajan Watershed");
+            layerControl.addOverlay(inarajanWatershed, "Inarajan", "Watersheds");
         
         const manellWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -289,7 +185,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(manellWatershed, "Manell Watershed");
+            layerControl.addOverlay(manellWatershed, "Manell", "Watersheds");
         
         const geusWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -301,7 +197,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(geusWatershed, "Geus Watershed");
+            layerControl.addOverlay(geusWatershed, "Geus", "Watersheds");
 
         const toguanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -313,7 +209,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(toguanWatershed, "Toguan Watershed");
+            layerControl.addOverlay(toguanWatershed, "Toguan", "Watersheds");
 
         const umatacWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -325,7 +221,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(umatacWatershed, "Umatac Watershed");
+            layerControl.addOverlay(umatacWatershed, "Umatac", "Watersheds");
 
         const cettiWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -337,7 +233,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(cettiWatershed, "Cetti Watershed");
+            layerControl.addOverlay(cettiWatershed, "Cetti", "Watersheds");
         
         const taelayagWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -349,7 +245,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(taelayagWatershed, "Taelayag Watershed");
+            layerControl.addOverlay(taelayagWatershed, "Taelayag", "Watersheds");
         
         const agatWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -361,7 +257,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map); 
-            // layerControl.addOverlay(agatWatershed, "Agat Watershed");
+            layerControl.addOverlay(agatWatershed, "Agat", "Watersheds");
         
         const apraWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -373,36 +269,8 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            // layerControl.addOverlay(apraWatershed, "Apra Watershed");
-
-        watersheds = L.layerGroup([pagoWatershed, yligWatershed, talofofoWatershed, ugumWatershed, dandanWatershed, inarajanWatershed, manellWatershed, geusWatershed, toguanWatershed, umatacWatershed, cettiWatershed, taelayagWatershed, agatWatershed, apraWatershed]).addTo(map);
-
-        var groupedOverlays = { 
-            "Watersheds": {
-                "Pago": pagoWatershed,
-                "Ylig": yligWatershed,
-                "Talofofo": talofofoWatershed,
-                "Ugum": ugumWatershed,
-                "Dandan": dandanWatershed,
-                "Inarajan": inarajanWatershed,
-                "Manell": manellWatershed,
-                "Geus": geusWatershed,
-                "Toguan": toguanWatershed, 
-                "Umatac": umatacWatershed,
-                "Cetti": cettiWatershed,
-                "Taelayag": taelayagWatershed,
-                "Agat": agatWatershed,
-                "Apra": apraWatershed
-            }
-        }
-
-        var groupedLayersOptions = {
-            groupCheckboxes: true, 
-            position: 'bottomright'
-        };
-
-        L.control.groupedLayers(baseLayers, groupedOverlays, groupedLayersOptions).addTo(map)
-        })
+            layerControl.addOverlay(apraWatershed, "Apra", "Watersheds");
+    })
 
 let plotData
 const plotFDC = () => {
@@ -508,3 +376,111 @@ fetch(dataUrl)
       layerControl.addOverlay(riverGeoJSON, "Rivers")
   })
 
+L.control.zoom({
+    position: 'bottomright',
+}).addTo(map);
+
+// Control: Reset map view (goes to initial map zoom on page load)
+var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
+    map.setView(center, 12);
+}, "Reset map view");
+
+const controlBar = L.easyBar([
+    resetZoomBtn,
+], { position: 'bottomright'})
+
+controlBar.addTo(map);
+
+const mapTitle = L.control({ position: 'topleft' });
+
+mapTitle.onAdd = function(map) {
+    this._div = L.DomUtil.create('div', 'mapTitle'); 
+    this._div.innerHTML = '<img src="./src/assets/WERI MAppFx_Title Card_Ugum FDC.png" height="150">';
+    return this._div;
+}
+
+mapTitle.addTo(map);
+
+// Hides tooltip based on zoom level for USGS stream gages 
+map.on('zoomend', function(z) {
+    var zoomLevel = map.getZoom();
+    if (zoomLevel >= 13 ){
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
+            t.style.visibility = 'visible';
+        });
+    } else {
+        [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
+            t.style.visibility = 'hidden';
+        });
+    }
+});
+
+// Draw control bar
+var drawnFeatures = new L.FeatureGroup();
+map.addLayer(drawnFeatures);
+
+var drawControl = new L.Control.Draw({
+    position: "bottomright",
+    draw: {
+        polyline: {
+            allowIntersection: true,
+            shapeOptions: {
+                color: "orange"
+            }
+        },
+        polygon: {
+            allowIntersection: false,
+            showArea: true,
+            showLength: true,
+            shapeOptions: {
+                color: "purple",
+                clickable: true
+            }
+        },
+        circle: {
+            shapeOptions: {
+                shapeOptions: {
+                    color: "blue",
+                    clickable: true
+                }
+            }
+        },
+        circlemarker: false,
+        rectangle: {
+            showArea: true,
+            showLength: true,
+            shapeOptions: {
+                color: "green",
+                clickable: true
+            }
+        },
+        marker: false
+    },
+    edit: {
+        featureGroup: drawnFeatures,
+        remove: true,
+    }
+});
+
+map.addControl(drawControl);
+
+map.on(L.Draw.Event.CREATED, function(event) {
+    var layer = event.layer;
+    drawnFeatures.addLayer(layer);
+});
+
+if (map.hasLayer(drawnFeatures)) {
+    layerControl.addOverlay(drawnFeatures, "Drawings");
+}
+
+// Mini map shows view of current region 
+const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 8, maxZoom: 14, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
+
+var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
+
+// var panelLayers = new L.Control.PanelLayers(baseLayers, {
+//     collapsibleGroups: true,
+//     collapsed: true,
+// });
+
+// map.addControl(panelLayers);
