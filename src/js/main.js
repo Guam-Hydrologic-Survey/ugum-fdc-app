@@ -44,7 +44,24 @@ const baseLayers = {
     'Dark Canvas': cdbd,
 }
 
+// const baseLayers = {
+//     "Base Maps": {
+//         "ESRI World Imagery": ewi,
+//         "Open Street Map": osm,
+//         "Gray Canvas": ewgc,
+//         "Dark Canvas": cdbd
+//     }
+// }
+
 const layerControl = L.control.layers(baseLayers, null, { position: 'bottomright'}).addTo(map);
+
+// var groupedLayersOptions = {
+//     exclusiveGroups: ["Base Maps"],
+//     groupCheckboxes: true, 
+//     position: 'bottomright'
+// };
+
+// const layerControl = L.control.groupedLayers(baseLayers, groupedLayersOptions).addTo(map)
 
 L.control.zoom({
     position: 'bottomright',
@@ -200,7 +217,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(pagoWatershed, "Pago Watershed");
+            // layerControl.addOverlay(pagoWatershed, "Pago Watershed");
         
         const yligWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -212,7 +229,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(yligWatershed, "Ylig Watershed");
+            // layerControl.addOverlay(yligWatershed, "Ylig Watershed");
 
         const talofofoWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -224,7 +241,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(talofofoWatershed, "Talofofo Watershed");
+            // layerControl.addOverlay(talofofoWatershed, "Talofofo Watershed");
         
         const ugumWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -236,7 +253,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(ugumWatershed, "Ugum Watershed");
+            // layerControl.addOverlay(ugumWatershed, "Ugum Watershed");
         
         const dandanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -248,7 +265,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(dandanWatershed, "Dandan Watershed");
+            // layerControl.addOverlay(dandanWatershed, "Dandan Watershed");
         
         const inarajanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -260,7 +277,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(inarajanWatershed, "Inarajan Watershed");
+            // layerControl.addOverlay(inarajanWatershed, "Inarajan Watershed");
         
         const manellWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -272,7 +289,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(manellWatershed, "Manell Watershed");
+            // layerControl.addOverlay(manellWatershed, "Manell Watershed");
         
         const geusWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -284,7 +301,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(geusWatershed, "Geus Watershed");
+            // layerControl.addOverlay(geusWatershed, "Geus Watershed");
 
         const toguanWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -296,7 +313,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(toguanWatershed, "Toguan Watershed");
+            // layerControl.addOverlay(toguanWatershed, "Toguan Watershed");
 
         const umatacWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -308,7 +325,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(umatacWatershed, "Umatac Watershed");
+            // layerControl.addOverlay(umatacWatershed, "Umatac Watershed");
 
         const cettiWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -320,7 +337,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(cettiWatershed, "Cetti Watershed");
+            // layerControl.addOverlay(cettiWatershed, "Cetti Watershed");
         
         const taelayagWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -332,7 +349,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(taelayagWatershed, "Taelayag Watershed");
+            // layerControl.addOverlay(taelayagWatershed, "Taelayag Watershed");
         
         const agatWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -344,7 +361,7 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map); 
-            layerControl.addOverlay(agatWatershed, "Agat Watershed");
+            // layerControl.addOverlay(agatWatershed, "Agat Watershed");
         
         const apraWatershed = L.geoJSON(geojson, {
             filter: function(feature, layer) {
@@ -356,79 +373,35 @@ fetch('./src/data/STREAM_GAGES_USED.json')
                 opacity: .30,
             },
             onEachFeature: getPoly, }).addTo(map);
-            layerControl.addOverlay(apraWatershed, "Apra Watershed");
+            // layerControl.addOverlay(apraWatershed, "Apra Watershed");
 
         watersheds = L.layerGroup([pagoWatershed, yligWatershed, talofofoWatershed, ugumWatershed, dandanWatershed, inarajanWatershed, manellWatershed, geusWatershed, toguanWatershed, umatacWatershed, cettiWatershed, taelayagWatershed, agatWatershed, apraWatershed]).addTo(map);
 
-        var watershedOverlays = [
-            {
-                group: "Watersheds",
-                layers: [
-                    {
-                        name: 'Pago',
-                        layer: pagoWatershed,
-                    },
-                    {
-                        name: 'Ylig',
-                        layer: yligWatershed,
-                    },
-                    {
-                        name: 'Talofofo',
-                        layer: talofofoWatershed,
-                    },
-                    {
-                        name: 'Ugum',
-                        layer: ugumWatershed,
-                    },
-                    {
-                        name: 'Dandan',
-                        layer: dandanWatershed,
-                    },
-                    {
-                        name: 'Inarajan',
-                        layer: inarajanWatershed,
-                    },
-                    {
-                        name: 'Manell',
-                        layer: manellWatershed,
-                    },
-                    {
-                        name: 'Geus',
-                        layer: geusWatershed,
-                    },
-                    {
-                        name: 'Toguan',
-                        layer: toguanWatershed,
-                    },
-                    {
-                        name: 'Umatac',
-                        layer: umatacWatershed,
-                    },
-                    {
-                        name: 'Cetti',
-                        layer: cettiWatershed,
-                    },
-                    {
-                        name: 'Taelayag',
-                        layer: taelayagWatershed,
-                    },
-                    {
-                        name: 'Agat',
-                        layer: agatWatershed,
-                    },
-                    {
-                        name: 'Apra',
-                        layer: apraWatershed,
-                    },
-                ]
+        var groupedOverlays = { 
+            "Watersheds": {
+                "Pago": pagoWatershed,
+                "Ylig": yligWatershed,
+                "Talofofo": talofofoWatershed,
+                "Ugum": ugumWatershed,
+                "Dandan": dandanWatershed,
+                "Inarajan": inarajanWatershed,
+                "Manell": manellWatershed,
+                "Geus": geusWatershed,
+                "Toguan": toguanWatershed, 
+                "Umatac": umatacWatershed,
+                "Cetti": cettiWatershed,
+                "Taelayag": taelayagWatershed,
+                "Agat": agatWatershed,
+                "Apra": apraWatershed
             }
-        ]
-        
-        var panelLayers = new L.Control.PanelLayers(watershedOverlays, {
-            selectorGroup: true
-        });
-        
-        map.addControl(panelLayers);
+        }
+
+        var groupedLayersOptions = {
+            groupCheckboxes: true, 
+            position: 'bottomright'
+        };
+
+        L.control.groupedLayers(baseLayers, groupedOverlays, groupedLayersOptions).addTo(map)
         })
 
 let plotData
