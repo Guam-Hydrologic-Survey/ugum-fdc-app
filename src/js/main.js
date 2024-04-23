@@ -28,13 +28,13 @@ const ewi = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Wo
 }).addTo(map); 
 
 // ESRI World Gray Canvas 
-var ewgc = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+let ewgc = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri' + devs,
 	maxZoom: maxZoom,
 });
 
 // Carto DB Dark Matter tiles
-var cdbd = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+let cdbd = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' + devs,
 	subdomains: 'abcd',
 	maxZoom: maxZoom,
@@ -62,7 +62,12 @@ let groupedLayersOptions = {
     position: 'bottomright'
 };
 
-const layerControl = L.control.groupedLayers(baseLayers, bases, groupedLayersOptions).addTo(map)
+const layerControl = L.control.groupedLayers(baseLayers, bases, groupedLayersOptions).addTo(map);
+
+// Mini map shows view of current region 
+let mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { minZoom: 8, maxZoom: 14, attribution: 'Tiles &copy; Esri' + devs });
+
+let miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
 
 let streamGages;
 
@@ -218,10 +223,10 @@ const downloadData = (id) => {
     document.body.removeChild(a)
 }
 
-var riverGeoJSON;
+let riverGeoJSON;
 
 function isEmpty(name, id) {
-    var title;
+    let title;
     if (!name) {
         title = 'Reach ID: ' + id;
     } else {
@@ -231,7 +236,7 @@ function isEmpty(name, id) {
 }
 
 function highlightFeature(e) {
-    var layer = e.target;
+    let layer = e.target;
 
     layer.setStyle({
         weight: 5,
@@ -286,7 +291,7 @@ L.control.zoom({
 }).addTo(map);
 
 // Control: Reset map view (goes to initial map zoom on page load)
-var resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
+let resetZoomBtn = L.easyButton('<i class="fa-regular fa-map"></i>', function() {
     map.setView(center, 12);
 }, "Reset map view");
 
@@ -308,7 +313,7 @@ mapTitle.addTo(map);
 
 // Hides tooltip based on zoom level for USGS stream gages 
 map.on('zoomend', function(z) {
-    var zoomLevel = map.getZoom();
+    let zoomLevel = map.getZoom();
     if (zoomLevel >= 13 ){
         [].forEach.call(document.querySelectorAll('.leaflet-tooltip.watershed-tooltip'), function (t) {
             t.style.visibility = 'visible';
@@ -321,10 +326,10 @@ map.on('zoomend', function(z) {
 });
 
 // Draw control bar
-var drawnFeatures = new L.FeatureGroup();
+let drawnFeatures = new L.FeatureGroup();
 map.addLayer(drawnFeatures);
 
-var drawControl = new L.Control.Draw({
+let drawControl = new L.Control.Draw({
     position: "bottomright",
     draw: {
         polyline: {
@@ -370,15 +375,10 @@ var drawControl = new L.Control.Draw({
 map.addControl(drawControl);
 
 map.on(L.Draw.Event.CREATED, function(event) {
-    var layer = event.layer;
+    let layer = event.layer;
     drawnFeatures.addLayer(layer);
 });
 
 if (map.hasLayer(drawnFeatures)) {
     layerControl.addOverlay(drawnFeatures, "Drawings");
 }
-
-// Mini map shows view of current region 
-const mini_ewi = new L.TileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {minZoom: 8, maxZoom: 14, attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community' + devs });
-
-var miniMap = new L.Control.MiniMap(mini_ewi, { position: 'bottomleft', toggleDisplay: true }).addTo(map);
