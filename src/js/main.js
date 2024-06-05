@@ -305,7 +305,7 @@ const mapTitle = L.control({ position: 'topleft' });
 
 mapTitle.onAdd = function(map) {
     this._div = L.DomUtil.create('div', 'mapTitle'); 
-    this._div.innerHTML = '<img src="./src/assets/WERI MAppFx_Title Card_Ugum FDC.png" height="150">';
+    this._div.innerHTML = '<img src="./src/assets/WERI MAppFx_Title Card_Southern Guam FDC.png" height="150">';
     return this._div;
 }
 
