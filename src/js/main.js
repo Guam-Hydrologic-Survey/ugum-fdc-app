@@ -76,7 +76,7 @@ fetch(streamGageData)
   .then(geojson => {
     const getInfo = (feature, layer) => {
         layer.bindTooltip('USGS Stream Gage', {permanent: true, direction: 'bottom', offset: [0,10], className: 'usgs-stream-gages-tooltip'})
-        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBE} <br><i><a href=${feature.properties.USGS_link} target="_blank" rel="noreferrer noopener">${feature.properties.NAME}</i></a></span>`);
+        layer.bindPopup(`<span align="center"><b>${feature.properties.AGENCY}</b> <br>Stream Gage #: ${feature.properties.GAGE_NUMBER} <br><i><a href=${feature.properties.USGS_link} target="_blank" rel="noreferrer noopener">${feature.properties.NAME}</i></a></span>`);
     }
     
     streamGages = L.geoJSON(geojson, { 
