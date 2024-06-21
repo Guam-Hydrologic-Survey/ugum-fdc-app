@@ -55,7 +55,7 @@
     <div class="bs-btn-group" id="nav-btns">
       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
         <!-- About button -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#about" title="About">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#about1" title="About">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
           </svg>
@@ -103,7 +103,7 @@
       </div>
 
       <!-- Bootstrap Modal for About -->
-      <div class="modal fade" id="about" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="about1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -111,6 +111,37 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="about-txt">
+              <p>
+                <span id="txt-title">WERI Technical Report No. ###<br>Southern Guam Watersheds: Streamflow Duration Curves</span>
+                <br><br>
+                Coming soon... 
+              </p>
+            </div>
+            <div class="modal-footer about-btns">
+              <div class="dropdown-center">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  WERI Maps
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener">NGLA Map Series</a></li>
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/mappfx/" target="_blank" rel="noreferrer noopener">MAppFx Library</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report ###</a>
+              <button class="btn btn-secondary" data-bs-target="#about2" data-bs-toggle="modal">WERI Technical Report 181</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="about2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">About</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body about-txt">
               <p>
                 <span id="txt-title">WERI Technical Report No. 181<br>Southern Guam: Ugum Streamflow Duration Curves</span>
                 <br><br>
@@ -138,12 +169,22 @@
               </p>
             </div>
             <div class="modal-footer about-btns">
-              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report</a>
-              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener" role="button">NGLA Map Series</a>
+              <div class="dropdown-center">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  WERI Maps
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/interagency-maps/" target="_blank" rel="noreferrer noopener">NGLA Map Series</a></li>
+                  <li><a class="dropdown-item" href="https://guamhydrologicsurvey.uog.edu/index.php/mappfx/" target="_blank" rel="noreferrer noopener">MAppFx Library</a></li>
+                </ul>
+              </div>
+              <a class="btn btn-primary" href="https://guamhydrologicsurvey.uog.edu/index.php/2023/07/11/mappfx-southern-guam-ugum-watershed-flow-duration-curves/" target="_blank" rel="noreferrer noopener" role="button">WERI Technical Report 181</a>
+              <button class="btn btn-secondary" data-bs-target="#about1" data-bs-toggle="modal">Back</button>
             </div>
           </div>
         </div>
       </div>
+      <button class="btn btn-primary" data-bs-target="#about1" data-bs-toggle="modal">Open first modal</button>
 
       <!-- Map marker popup -->
       <div id="marker-card"></div>
