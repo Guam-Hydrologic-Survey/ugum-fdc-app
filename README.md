@@ -1,4 +1,4 @@
-<h1 align="center">Southern Guam MAppFx: Ugum Watershed Streamflow Duration Curves</h1>
+<h1 align="center">MAppFx: Southern Guam - Ugum Watershed Streamflow Duration Curves</h1>
 
 <p align="center">
 <img src="./src/assets/MAppFx-Ugum-FDC_Preview01.png"/>
